@@ -239,7 +239,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     }
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -253,8 +252,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
                 try {
                     getContentResolver().takePersistableUriPermission(mImageUri, takeFlags);
-                }
-                catch (SecurityException e){
+                } catch (SecurityException e) {
                     e.printStackTrace();
                 }
 
@@ -276,7 +274,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         String quantityString = mEditQuantityView.getText().toString().trim();
         String suppliernameString = mEditTextSupplierName.getText().toString().trim();
         String supplierEmailString = mEditTextSupplierEmail.getText().toString().trim();
-
 
 
         // Check if this is supposed to be a new product
@@ -371,7 +368,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                         Toast.LENGTH_SHORT).show();
             }
         }
-        
+
     }
 
 
