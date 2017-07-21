@@ -68,7 +68,7 @@ public class ProductContract {
         // The supplier email TYPE: Text
         public final static String COLUMN_SUPPLIER_EMAIL = "supplieremail";
 
-        // The product Image TYPE: Blob
+        // The product Image TYPE: Text
         public final static String COLUMN_PRODUCT_IMAGE = "image";
 
 

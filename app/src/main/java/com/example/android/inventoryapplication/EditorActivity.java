@@ -9,9 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,8 +27,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android.inventoryapplication.data.ProductContract;
-
-import java.io.ByteArrayOutputStream;
 
 /**
  * Created by MariamNKinene on 16/07/2017.
@@ -164,7 +159,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mButtonAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent;
+                new Intent();
 
                 if (Build.VERSION.SDK_INT < 19) {
                     intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -275,16 +271,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
      * Method to add a new product to database
      */
     private void saveProduct() {
-        //Read input fields
-        Drawable imageImage = mImageProduct.getDrawable();
-        //Convert to bitmap
-        BitmapDrawable bitmapDrawable = ((BitmapDrawable) imageImage);
-        Bitmap bitmap = bitmapDrawable.getBitmap();
-        //Convert to byte to store
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-        byte[] imageByte = bos.toByteArray();
-
         String nameString = mEditTextProductName.getText().toString().trim();
         String priceString = mEditTextProductPrice.getText().toString().trim();
         String quantityString = mEditQuantityView.getText().toString().trim();
@@ -385,7 +371,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                         Toast.LENGTH_SHORT).show();
             }
         }
-        return;
+        
     }
 
 
@@ -641,6 +627,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
     private void hideOrderButton() {
         Button OrderButton = (Button) findViewById(R.id.button_order_more);
-        OrderButton.setVisibility(OrderButton.GONE);
+        OrderButton.setVisibility(View.GONE);
     }
 }
